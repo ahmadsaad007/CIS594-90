@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class AddSimpletron {
+public class Simpletron {
     private final int[] memory = new int[100];
     private int accumulator = 0;
     private int instructionCounter = 0;
@@ -78,7 +78,7 @@ public class AddSimpletron {
     }
 
     public static void main(String[] args) {
-        AddSimpletron simpletron = new AddSimpletron();
+        Simpletron simpletron = new Simpletron();
         simpletron.loadProgramFromFile("program.txt");
         simpletron.execute();
         simpletron.memoryDump();
