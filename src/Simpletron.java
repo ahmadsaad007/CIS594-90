@@ -15,7 +15,8 @@ public class Simpletron {
         try (Scanner fileScanner = new Scanner(new File(filename))) {
             int lineNumber = 0;
             while (fileScanner.hasNextInt() && lineNumber < 100) {
-                memory[lineNumber++] = fileScanner.nextInt();
+                memory[lineNumber] = fileScanner.nextInt();
+                lineNumber++;
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error: File not found.");
@@ -79,16 +80,24 @@ public class Simpletron {
                     System.out.println();
                     break;
                 default:
-                    System.out.println("Error: Invalid operation code");
+                    System.out.println("Error: Invalid operation code at " + instructionCounter);
                     return;
             }
+
+            // Ensure accumulator stays within bounds
+            if (accumulator < -9999 || accumulator > 9999) {
+                System.out.println("Error: Accumulator overflow at operation code " + operationCode);
+                return;
+            }
+
             instructionCounter++;
         }
     }
 
+
     public static void main(String[] args) {
         Simpletron simpletron = new Simpletron();
-        simpletron.loadProgramFromFile("program.txt");
+        simpletron.loadProgramFromFile("src/program.txt");
         simpletron.execute();
         simpletron.memoryDump();
     }
