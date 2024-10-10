@@ -10,13 +10,31 @@ public class AddSimpletron {
     private Scanner scanner = new Scanner(System.in);
 
     public void loadProgram() {
-        memory[0] = 1009; // READ into memory[9]
-        memory[1] = 1010; // READ into memory[10]
-        memory[2] = 2009; // LOAD from memory[9]
-        memory[3] = 3010; // ADD memory[10] to accumulator
-        memory[4] = 2111; // STORE result in memory[11]
-        memory[5] = 1111; // WRITE memory[11]
-        memory[6] = 4300; // HALT
+        memory[0] = 1009; // READ first number into memory[9]
+        memory[1] = 1010; // READ second number into memory[10]
+
+        memory[2] = 2009; // LOAD first number from memory[9]
+        memory[3] = 3010; // ADD second number from memory[10]
+        memory[4] = 2111; // STORE addition result in memory[11]
+
+        memory[5] = 2009; // LOAD first number from memory[9]
+        memory[6] = 3110; // SUBTRACT second number from memory[10]
+        memory[7] = 2112; // STORE subtraction result in memory[12]
+
+        memory[8] = 2009; // LOAD first number from memory[9]
+        memory[9] = 3310; // MULTIPLY by second number from memory[10]
+        memory[10] = 2113; // STORE multiplication result in memory[13]
+
+        memory[11] = 2009; // LOAD first number from memory[9]
+        memory[12] = 3210; // DIVIDE by second number from memory[10]
+        memory[13] = 2114; // STORE division result in memory[14]
+
+        memory[14] = 1111; // WRITE addition result from memory[11]
+        memory[15] = 1112; // WRITE subtraction result from memory[12]
+        memory[16] = 1113; // WRITE multiplication result from memory[13]
+        memory[17] = 1114; // WRITE division result from memory[14]
+
+        memory[18] = 4300; // HALT
     }
 
     public void execute() {
