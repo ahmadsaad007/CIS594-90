@@ -1,23 +1,15 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class AddSimpletron {
-    private int[] memory = new int[100];
+    private final int[] memory = new int[100];
     private int accumulator = 0;
     private int instructionCounter = 0;
     private int instructionRegister = 0;
     private int operationCode = 0;
     private int operand = 0;
-    private Scanner scanner = new Scanner(System.in);
-
-    public void loadProgram() {
-        memory[0] = 1009; // READ into memory[9]
-        memory[1] = 1010; // READ into memory[10]
-        memory[2] = 2009; // LOAD from memory[9]
-        memory[3] = 3010; // ADD memory[10] to accumulator
-        memory[4] = 2111; // STORE result in memory[11]
-        memory[5] = 1111; // WRITE memory[11]
-        memory[6] = 4300; // HALT
-    }
+    private final Scanner scanner = new Scanner(System.in);
 
     public void execute() {
         while (true) {
@@ -67,9 +59,29 @@ public class AddSimpletron {
         }
     }
 
+    public void loadProgramFromFile(String filename) {
+        try (Scanner fileScanner = new Scanner(new File(filename))) {
+            int lineNumber = 0;
+            while (fileScanner.hasNextInt() && lineNumber < 100) {
+                memory[lineNumber++] = fileScanner.nextInt();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File not found.");
+        }
+    }
+
+    public void memoryDump() {
+        System.out.println("Memory Dump:");
+        for (int i = 0; i < memory.length; i++) {
+            System.out.printf("%02d: %04d\n", i, memory[i]);
+        }
+    }
+
     public static void main(String[] args) {
-        AddSimpletron addSimpletron = new AddSimpletron();
-        addSimpletron.loadProgram();
-        addSimpletron.execute();
+        AddSimpletron simpletron = new AddSimpletron();
+        simpletron.loadProgramFromFile("program.txt");
+        simpletron.execute();
+        simpletron.memoryDump();
     }
 }
+
