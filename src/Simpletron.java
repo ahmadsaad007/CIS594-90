@@ -9,6 +9,7 @@ public class Simpletron {
     private int instructionRegister = 0;
     private int operationCode = 0;
     private int operand = 0;
+  
     private final Scanner scanner = new Scanner(System.in);
 
     public void loadProgramFromFile(String filename) {
