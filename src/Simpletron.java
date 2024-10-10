@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AddSimpletron {
+public class Simpletron {
     private int[] memory = new int[100];
     private int accumulator = 0;
     private int instructionCounter = 0;
@@ -86,8 +86,8 @@ public class AddSimpletron {
     }
 
     public static void main(String[] args) {
-        AddSimpletron addSimpletron = new AddSimpletron();
-        addSimpletron.loadProgram();
-        addSimpletron.execute();
+        Simpletron simpletron = new Simpletron();
+        simpletron.loadProgram();
+        simpletron.execute();
     }
 }
