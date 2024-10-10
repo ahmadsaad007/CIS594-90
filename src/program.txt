@@ -1,0 +1,46 @@
+1009   // READ first number into memory location 09
+1010   // READ second number into memory location 10
+
+// Addition
+2009   // LOAD first number from memory location 09
+3010   // ADD second number from memory location 10
+2111   // STORE addition result in memory location 11
+
+// Subtraction
+2009   // LOAD first number from memory location 09
+3110   // SUBTRACT second number from memory location 10
+2112   // STORE subtraction result in memory location 12
+
+// Multiplication
+2009   // LOAD first number from memory location 09
+3310   // MULTIPLY by second number from memory location 10
+2113   // STORE multiplication result in memory location 13
+
+// Division
+2009   // LOAD first number from memory location 09
+3210   // DIVIDE by second number from memory location 10
+2114   // STORE division result in memory location 14
+
+// Remainder
+2009   // LOAD first number from memory location 09
+5010   // REMAINDER after dividing by second number at memory location 10
+2115   // STORE remainder result in memory location 15
+
+// Exponentiation
+2009   // LOAD first number from memory location 09
+5110   // EXPONENTIATE by second number from memory location 10
+2116   // STORE exponentiation result in memory location 16
+
+// Write Results
+1111   // WRITE addition result from memory location 11
+5216   // OUTPUT newline
+1112   // WRITE subtraction result from memory location 12
+5216   // OUTPUT newline
+1113   // WRITE multiplication result from memory location 13
+5216   // OUTPUT newline
+1114   // WRITE division result from memory location 14
+5216   // OUTPUT newline
+1115   // WRITE remainder result from memory location 15
+5216   // OUTPUT newline
+1116   // WRITE exponentiation result from memory location 16
+4300   // HALT the program
